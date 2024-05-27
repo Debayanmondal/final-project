@@ -21,7 +21,7 @@ docker run --name frontend -td -p 3000:3000 debayanmondal/frontend:v1
 docker run --name backend -td -p 27017:27017 debayanmondal/backend:v1
 6. List All Docker Containers:
 docker ps -a
-Additional Information:
+7. Additional Information:
 Ensure that the ports 3000 and 27017 are available and not being used by other applications on your local machine.
 The images are tagged as v1. You can update the tags based on your versioning strategy.
 Stop Container:
