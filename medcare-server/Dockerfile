@@ -1,5 +1,5 @@
-# Use the official Node.js image
-FROM node:14
+# Use the official MongoDB image as the base
+FROM mongo:4.4
 
 # Create and set the working directory
 WORKDIR /medcare-server
