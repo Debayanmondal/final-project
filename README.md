@@ -6,36 +6,27 @@ This project involves setting up a Node.js frontend and a MongoDB backend using 
 - Docker Hub account (for pushing images)
 
 ## Setup Instructions
-1. Add Current User to Docker Group
+1. Add Current User to Docker Group:
 sudo usermod -aG docker $USER
-2. Build Docker Images
-Frontend
+2. Build Docker Images:
 docker build -t debayanmondal/frontend:v1 .
-Backend
 docker build -t debayanmondal/backend:v1 .
-3. List Docker Images
+3. List Docker Images:
 docker images
-4. Push Docker Images to Docker Hub
-Push Frontend Image
+4. Push Docker Images to Docker Hub:
 docker push debayanmondal/frontend:v1
-Push Backend Image
 docker push debayanmondal/backend:v1
-5. Run Docker Containers
-Run Frontend Container
+5. Run Docker Containers:
 docker run --name frontend -td -p 3000:3000 debayanmondal/frontend:v1
-Run Backend Container
 docker run --name backend -td -p 27017:27017 debayanmondal/backend:v1
-6. List All Docker Containers
+6. List All Docker Containers:
 docker ps -a
-Additional Information
+Additional Information:
 Ensure that the ports 3000 and 27017 are available and not being used by other applications on your local machine.
 The images are tagged as v1. You can update the tags based on your versioning strategy.
-To stop the containers, you can use the following commands:
-Stop Frontend Container
+Stop Container:
 docker stop frontend
-Stop Backend Container
 docker stop backend
-Remove Frontend Container
+Remove Container:
 docker rm frontend
-Remove Backend Container
 docker rm backend
