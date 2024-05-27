@@ -1,8 +1,8 @@
-# Use the official Node.js image
+# Use the official Node.js image as the base
 FROM node:14
 
-# Create and set the working directory
-WORKDIR /medcare
+# Set the working directory in the container
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -10,12 +10,12 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the application code
 COPY . .
 
-# Expose the port the app runs on
+# Expose the port your application listens on
 EXPOSE 3000
 
-# Command to run the application
+# Start the application
 CMD ["npm", "start"]
 
