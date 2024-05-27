@@ -1,5 +1,5 @@
 # Use the official MongoDB image as the base
-FROM mongo:4.4
+FROM node:18-bullseye
 
 # Create and set the working directory
 WORKDIR /medcare-server
