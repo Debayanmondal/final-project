@@ -17,5 +17,5 @@ COPY . .
 EXPOSE 27017
 
 # Command to run the application
-CMD ["node", "start"]
+CMD ["npm", "start"]
 
