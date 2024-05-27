@@ -1,5 +1,5 @@
 # Use the official MongoDB image as the base
-FROM node:18-bullseye
+FROM node:18
 
 # Create and set the working directory
 WORKDIR /app
