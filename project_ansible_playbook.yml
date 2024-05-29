@@ -1,0 +1,45 @@
+---
+- hosts: worker
+  become: yes
+  tasks:
+
+    - name: Install Node.js
+      yum:
+        name: nodejs
+        state: present
+        update_cache: yes
+
+    - name: Install MongoDB
+      yum:
+        name: mongodb-org
+        state: present
+
+    - name: Start MongoDB service
+      systemd:
+        state: started
+        name: mongod
+
+    - name: Install frontend dependencies
+      npm:
+        path: /home/ec2-user/final-project/medcare
+
+    - name: Build frontend
+      command: npm run build
+      args:
+        chdir: /home/ec2-user/final-project/medcare
+
+    - name: Start frontend
+      command: npm start
+      args:
+        chdir: /home/ec2-user/final-project/medcare
+
+    - name: Install backend dependencies
+      npm:
+        path: /home/ec2-user/final-project/medcare-server
+
+    - name: Start backend
+      command: npm start
+      args:
+        chdir: /home/ec2-user/final-project/medcare-server
+      environment:
+        MONGODB_URI: mongodb://65.2.143.142:27017/Medcare
