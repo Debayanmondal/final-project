@@ -3,11 +3,26 @@
   become: yes
   tasks:
 
+    - name: Set up Node.js repository
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - nodejs-16.16.0
+
     - name: Install Node.js
       yum:
         name: nodejs
         state: present
-        update_cache: yes
+
+    - name: Set up MongoDB repository
+      yum_repository:
+        name: mongodb-org-6.0
+        description: MongoDB Repository
+        baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
+        gpgcheck: yes
+        enabled: yes
+        gpgkey: https://www.mongodb.org/static/pgp/server-6.0.asc
 
     - name: Install MongoDB
       yum:
